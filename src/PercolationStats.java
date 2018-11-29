@@ -11,13 +11,13 @@ import java.util.*;
 
 public class PercolationStats {
 	public static int RANDOM_SEED = 1234;
-	public static Random ourRandom = new Random(RANDOM_SEED);
+	public static Random ourRandom = new Random(RANDOM_SEED);  
 	
 	 private IPercolate getPercolator(int size) {
 		 //return new PercolationBFS(size);
-         return new PercolationDFS(size); 
-		 //IUnionFind uf = new QuickUWPC();
-         //return new PercolationUF(uf,size);
+        return new PercolationDFSFast(size); 
+		//IUnionFind uf = new QuickUWPC();
+        //return new PercolationUF(size, uf);
 	 }
 	 
 	 private ArrayList<int[]> getRandomSites(int size){

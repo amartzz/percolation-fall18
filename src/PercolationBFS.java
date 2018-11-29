@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PercolationBFS extends PercolationDFSFast {
+	
 
 	public PercolationBFS(int size) {
 		super(size);
