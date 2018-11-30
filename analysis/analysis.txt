@@ -1,10 +1,16 @@
 Ana Martinez
 apm36
-Copy/Paste results from PercolationStats using PercolationDFS
-
-
 Copy/Paste results from PercolationStats using PercolationDFSFast
-
+simulation data for 20 trials
+grid	mean	stddev	time
+100	0.593	0.014	0.119
+200	0.591	0.010	0.114
+400	0.590	0.006	0.672
+800	0.594	0.004	4.338
+Exception in thread "main" java.lang.StackOverflowError
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	at PercolationDFS.dfs(PercolationDFS.java:109)
+	at PercolationDFS.dfs(PercolationDFS.java:111)...
 
 Copy/Paste results from PercolationStats using PercolationBFS
 
@@ -16,6 +22,15 @@ grid	mean	stddev	time
 800	0.594	0.004	5.087
 1600	0.592	0.002	30.812
 3200	0.593	0.001	193.191
+
+simulation data for 40 trials
+grid	mean	stddev	time
+100	0.594	0.015	0.214
+200	0.591	0.009	0.272
+400	0.591	0.005	1.445
+800	0.593	0.004	9.253
+1600	0.593	0.002	58.187
+
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
@@ -31,9 +46,10 @@ grid	mean	stddev	time
 
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
-
+The run time doesn't change much when you go from 100->200; changed by ~.5 going from 200->400 and drastically increases when doubling
+grids >=400.
 
 2. How does doubling the number of trials affect running time.
-
+Based on my results when I doubled the number of trials for BFS, the runtime is almost exactly doubled.
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
