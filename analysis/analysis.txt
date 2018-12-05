@@ -30,7 +30,7 @@ grid	mean	stddev	time
 400	0.591	0.005	1.445
 800	0.593	0.004	9.253
 1600	0.593	0.002	58.187
-
+3200	0.593	0.001	405.654
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
@@ -44,12 +44,31 @@ grid	mean	stddev	time
 1600	0.592	0.002	20.019
 3200	0.593	0.001	108.042
 
+simulation data for 40 trials
+grid	mean	stddev	time
+100	0.594	0.015	0.185
+200	0.591	0.009	0.211
+400	0.591	0.005	1.310
+800	0.593	0.004	7.725
+1600	0.593	0.002	36.016
+3200	0.593	0.001	265.922
+
+
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
-The run time doesn't change much when you go from 100->200; changed by ~.5 going from 200->400 and drastically increases when doubling
+The run time doesn't change much when you go from 100->200; changed by ~.5 going from 200->400 and drastically increases (~5x) when doubling
 grids >=400.
 
 2. How does doubling the number of trials affect running time.
-Based on my results when I doubled the number of trials for BFS, the runtime is almost exactly doubled.
+Based on my results when I doubled the number of trials for BFS, the runtime is almost exactly doubled, sometimes slightly less or slightly more than the 20 trials runtime. 
+This makes sense, since the code does not change the Big(O) runtime should be the same, just doubled because we are running twice the number of tests.
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+24 hours = 86,400 sec
+for 20 trials, each trial must take at most 4,320 seconds (86,400/20)
+if we assume that grid size will increase by 5x every time the grid size is doubled and we only have 86,400 sec for the program to run, we can do algebra to get the grid size.
+
+using the 3200 grid as the starting point:
+108.042*5^n=86,400 where n is the number of times the grid size is doubled from 3200
+5^n=799.689
+n~4 so the grid size is 3200*2^4= 51,200

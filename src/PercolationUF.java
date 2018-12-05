@@ -50,7 +50,7 @@ public class PercolationUF implements IPercolate {
 		
 		// if neighbor in bounds && open ->
 		if (inBounds(row+1, col) &&
-				myGrid[row+1][col]==true)myFinder.union(conversion(row, myGrid.length, col), conversion(row+1, myGrid.length, col));
+				myGrid[row+1][col]==true) myFinder.union(conversion(row, myGrid.length, col), conversion(row+1, myGrid.length, col));
 		if (inBounds(row-1, col) &&
 				myGrid[row-1][col]==true)myFinder.union(conversion(row, myGrid.length, col), conversion(row-1, myGrid.length, col));
 		if (inBounds(row, col+1) &&
